@@ -4,6 +4,17 @@
 </div>
 
 <h2>Notes by Title</h2>
-<% @notes.each do |n| %>
+<%= @notes.each do |n| %>
 <%= n.title %>
+<%= n.content %>
 <% end %>
+
+
+<p>Upload Notes here:</p>
+<form accept-charset="UTF-8" action="/articles/create" method="post" class="nifty_form">
+  <input id="article_title" name="article[title]" type="text" />
+  <textarea id="article_body" name="article[body]" cols="60" rows="12"></textarea>
+  <input name="commit" type="submit" value="Create" />
+</form>
+
+

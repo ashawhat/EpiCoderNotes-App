@@ -1,0 +1,13 @@
+%= form_for @note, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+
+
+<h1>Add a Note:</h1>
+<hr>
+<form id="new-note" action='/notes' method="post">
+  <%= render('form') %>
+</form>
+<div class="clear"></div>
