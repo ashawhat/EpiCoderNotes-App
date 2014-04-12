@@ -4,17 +4,14 @@
 </div>
 
 <h2>Notes by Title</h2>
-<%= @notes.each do |n| %>
-<%= n.title %>
+<ul><% @notes.each do |n| %>
+<li><%= link_to n.title, note_path(n) %></li>
 <%= n.content %>
 <% end %>
+</ul>
 
 
 <p>Upload Notes here:</p>
-<form accept-charset="UTF-8" action="create" method="post" class="nifty_form">
-  <input id="note_title" name="note[title]" type="text" />
-  <textarea id="note_content" name="note[content]" cols="60" rows="12"></textarea>
-  <input name="commit" type="submit" value="Create" />
-</form>
 
+<%= render partial: "form", locals: {note: Note.new} %>
 

@@ -1,16 +1,5 @@
-<label class="f-label"><span>Title:</span><input name="note[title]" type="text" value="<%= @note.title %>"></label>
-<label class="f-label"><span>Content:</span><input name="note[content]" type="text" value="<%= @note.content %>"></label>
-  <label class="f-label"><span>Tags:</span>
-    <select id="tags" multiple>
-      <% @tags.each do |tag| %>
-        <option
-        <% if @note_tags
-         if @note_tags.include?(tag) %>
-        selected
-        <% end end %>
-        value="<%= tag.id %>"><%= tag.name %></option>
-      <% end %>
-    </select>
-</label>
-<div class="clear"></div>
-<button class="btn btn-danger">Submit</button>
+<%= form_for note do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Content : <%= f.text_field :content %><br />
+  <%= f.submit %>
+<% end %>
